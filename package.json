@@ -1,15 +1,16 @@
 {
-  "name": "ashitano-vest-webcomponents",
-  "version": "1.0.0",
-  "main": "dist/cjs/index.js",
-  "module": "dist/tsc/index.js",
-  "types": "dist/tsc/index.d.ts",
+  "name": "@kazuhi-ra/avw",
+  "version": "0.9.0",
+  "main": "dist/esm/index.js",
   "type": "module",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "webpack --watch --mode=development",
     "build": "rm -rf dist && webpack --mode=production",
-    "prepublishOnly": "npm run ts-test && rm -rf lib && tsc --build tsconfig.build.json",
+    "prepublishOnly": "rm -rf dist && npm run ts-test && npm run build && tsc --build tsconfig.json",
     "ts-test": "tsc -p . --noEmit",
     "lint:fix": "node --max_old_space_size=4096 ./node_modules/eslint/bin/eslint.js --ext .ts,.tsx --fix .",
     "prettier": "prettier --write --ignore-path .gitignore \"**/*.{md,ts,tsx}\"",

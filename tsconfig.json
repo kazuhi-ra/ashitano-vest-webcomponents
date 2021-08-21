@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "rootDir": "src",
-    "outDir": "lib",
+    "outDir": "dist/esm",
     "module": "esnext",
     "lib": ["ESNext", "DOM"],
     "moduleResolution": "node",

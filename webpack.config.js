@@ -9,7 +9,7 @@ export default {
     'ashitano-vest': './src/index',
   },
   output: {
-    path: path.resolve(__dirname, 'dist/js'),
+    path: path.resolve(__dirname, 'dist/browser'),
   },
   target: 'web',
   module: {
