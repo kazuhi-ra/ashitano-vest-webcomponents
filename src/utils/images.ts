@@ -23,5 +23,3 @@ export const pants = [
   'https://next-vest.kazuhira.dev/images/p4.jpg',
   'https://next-vest.kazuhira.dev/images/p5.jpg',
 ]
-
-export const background = 'https://next-vest.kazuhira.dev/images/renga2.png'

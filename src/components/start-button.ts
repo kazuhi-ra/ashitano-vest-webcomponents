@@ -12,8 +12,22 @@ export class StartButton extends LitElement {
     return [
       normalizeCss,
       css`
-        .container {
-          display: block;
+        .start-button {
+          color: #dedede;
+          cursor: pointer;
+          width: 260px;
+          height: 38px;
+          background-color: #3498db;
+          box-shadow: 0 4px 0 #2880b9;
+          border-radius: 8px;
+          line-height: 38px;
+          text-align: center;
+          font-size: 14px;
+          font-weight: bold;
+          user-select: none;
+          margin: 0 auto;
+          border: none;
+          font-family: Arial;
         }
       `,
     ]
@@ -31,7 +45,7 @@ export class StartButton extends LitElement {
   render() {
     return html`
       <button
-        style="color: #dedede; cursor: pointer; width: 260px; height: 38px; background-color: #3498db; box-shadow: 0 4px 0 #2880b9; border-radius: 8px; line-height: 38px; text-align: center; font-size: 14px; font-weight: bold; user-select: none; margin: 0 auto; border: none; font-family: Arial;"
+        class="start-button"
         .disabled=${this.disabled}
         @click=${this.clickHandler}
       >

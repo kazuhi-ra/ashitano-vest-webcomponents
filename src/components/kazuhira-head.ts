@@ -27,7 +27,7 @@ export class KazuhiraHead extends LitElement {
     return [
       normalizeCss,
       css`
-        .container {
+        .head-image {
           display: block;
         }
       `,
@@ -60,10 +60,11 @@ export class KazuhiraHead extends LitElement {
   render() {
     return html`
       <img
+        class="head-image"
+        alt="頭の写真"
         src=${this.headSrc(this.index)}
         width="270"
         height="108"
-        style="display: block;"
       />
     `
   }

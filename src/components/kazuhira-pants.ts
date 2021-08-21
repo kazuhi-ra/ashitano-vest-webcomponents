@@ -27,7 +27,7 @@ export class KazuhiraPants extends LitElement {
     return [
       normalizeCss,
       css`
-        .container {
+        .pants-image {
           display: block;
         }
       `,
@@ -59,7 +59,13 @@ export class KazuhiraPants extends LitElement {
 
   render() {
     return html`
-      <img src=${this.pantsSrc(this.index)} width="270" height="209" />
+      <img
+        class="pants-image"
+        alt="ズボンの写真"
+        src=${this.pantsSrc(this.index)}
+        width="270"
+        height="209"
+      />
     `
   }
 }

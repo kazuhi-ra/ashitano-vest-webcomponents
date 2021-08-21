@@ -17,8 +17,24 @@ export class StopButton extends LitElement {
     return [
       normalizeCss,
       css`
-        .container {
-          display: block;
+        .stop-button {
+          margin: 0 auto 4px auto;
+          cursor: pointer;
+          width: 50px;
+          height: 45px;
+          background-color: #ef454a;
+          box-shadow: 0 4px 0 #bb4038;
+          border-radius: 26px;
+          line-height: 45px;
+          text-align: center;
+          font-size: 13px;
+          color: #fff;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          border: none;
+          font-family: Arial;
         }
       `,
     ]
@@ -37,7 +53,7 @@ export class StopButton extends LitElement {
   render() {
     return html`
       <button
-        style="margin: 0 auto 4px auto; cursor: pointer; width: 50px; height: 45px; background-color: #ef454a; box-shadow: 0 4px 0 #bb4038; border-radius: 26px; line-height: 45px; text-align: center; font-size: 13px; color: #fff; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; border: none; font-family: Arial;"
+        class="stop-button"
         .disabled=${this.disabled}
         @click=${() => this.clickHandler(this.part)}
       >

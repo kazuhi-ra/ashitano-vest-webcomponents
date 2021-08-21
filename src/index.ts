@@ -2,7 +2,6 @@ import { css, html, LitElement } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 
 import { Part } from './components/stop-button'
-import { background } from './utils/images'
 import { normalizeCss } from './utils/normalizeCss'
 
 import './components/kazuhira-head'
@@ -40,8 +39,42 @@ export class AshitanoVest extends LitElement {
     return [
       normalizeCss,
       css`
+        .header {
+          color: #fff;
+          font-size: 19px;
+          font-weight: 500;
+          height: 54px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgb(23, 34, 59);
+          font-family: Helvetica Neue, Helvetica, Arial, 游ゴシック体, Yu Gothic,
+            YuGothic, Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+        }
         .container {
-          display: block;
+          width: 320px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-image: url(https://next-vest.kazuhira.dev/images/renga2.png);
+        }
+        .image-wrapper {
+          display: flex;
+          flex-direction: column;
+          margin-top: 24px;
+        }
+        .stop-button-wrapper {
+          width: 230px;
+          display: flex;
+          justify-content: space-between;
+          margin-top: 6px;
+        }
+        .bottom-button-wrapper {
+          width: 258px;
+          display: flex;
+          justify-content: space-between;
+          margin-top: 12px;
+          margin-bottom: 18px;
         }
       `,
     ]
@@ -105,26 +138,22 @@ export class AshitanoVest extends LitElement {
 
   render() {
     return html`
-      <div
-        style="color: #fff; font-size: 19px; font-weight: 500; height: 54px; display: flex; align-items: center; justify-content: center; background-color: rgb(23, 34, 59); font-family: Helvetica Neue,Helvetica,Arial,游ゴシック体,Yu Gothic,YuGothic,Hiragino Kaku Gothic ProN,Meiryo,sans-serif;"
-      >
+      <div class="header">
         <div>あしたのベスト 出張版</div>
       </div>
       <div
-        style="background-image: url(${background}); width: 320px; display: flex; justyfy-content: center; flex-direction: column;align-items: center;"
+        class="container"
         @start=${this.onStart}
         @stop=${this.onStop}
         @index=${this.setIndex}
       >
-        <div style="display: flex; flex-direction: column; margin-top: 24px;">
+        <div class="image-wrapper">
           <kazuhira-head .spin=${this._isHeadSpinning}></kazuhira-head>
           <kazuhira-vest .spin=${this._isVestSpinning}></kazuhira-vest>
           <kazuhira-pants .spin=${this._isPantsSpinning}></kazuhira-pants>
         </div>
 
-        <div
-          style="width: 230px; display: flex; justify-content: space-between; margin-top: 6px;"
-        >
+        <div class="stop-button-wrapper">
           <stop-button
             .disabled=${!this._isHeadSpinning}
             part="head"
@@ -139,9 +168,7 @@ export class AshitanoVest extends LitElement {
           ></stop-button>
         </div>
 
-        <div
-          style="width: 258px; display: flex; justify-content: space-between; margin-top: 12px; margin-bottom: 18px;"
-        >
+        <div class="bottom-button-wrapper">
           ${this._numberOfPlay === 0
             ? html`<start-button
                 .disabled=${!this.isAllStopped()}
