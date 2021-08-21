@@ -6,7 +6,7 @@ const __dirname = path.dirname(__filename)
 
 export default {
   entry: {
-    'ashitano-vest': './src/index',
+    index: './src/index',
   },
   output: {
     path: path.resolve(__dirname, 'dist/browser'),
