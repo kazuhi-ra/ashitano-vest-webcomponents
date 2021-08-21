@@ -1,15 +1,19 @@
 import { css, html, LitElement } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import { customElement } from 'lit/decorators.js'
+
+import { normalizeCss } from './utils/normalizeCss'
 
 @customElement('ashitano-vest')
 export class AshitanoVest extends LitElement {
-  @property({ type: String })
   static get styles() {
-    return css`
-      .container {
-        display: block;
-      }
-    `
+    return [
+      normalizeCss,
+      css`
+        .container {
+          display: block;
+        }
+      `,
+    ]
   }
 
   render() {
