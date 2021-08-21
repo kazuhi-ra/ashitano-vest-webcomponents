@@ -7,6 +7,7 @@
   "type": "module",
   "description": "",
   "scripts": {
+    "dev": "webpack --watch --mode=development",
     "build": "rm -rf dist && webpack --mode=production",
     "prepublishOnly": "npm run ts-test && rm -rf lib && tsc --build tsconfig.build.json",
     "ts-test": "tsc -p . --noEmit",
