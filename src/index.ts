@@ -40,6 +40,7 @@ export class AshitanoVest extends LitElement {
       normalizeCss,
       css`
         .header {
+          width: 320px;
           color: #fff;
           font-size: 19px;
           font-weight: 500;
