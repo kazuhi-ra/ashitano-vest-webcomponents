@@ -18,7 +18,9 @@ export class KazuhiraVest extends LitElement {
     if (this.spin && !this.timerId) {
       this.onSpinStarted()
     }
-    this.onSpinStopped()
+    if (!this.spin && !!this.timerId) {
+      this.onSpinStopped(this.timerId)
+    }
   }
 
   static get styles() {
@@ -41,12 +43,10 @@ export class KazuhiraVest extends LitElement {
     }, 20)
   }
 
-  private onSpinStopped = (): void => {
-    if (!this.spin && !!this.timerId) {
-      this.spin = false
-      clearInterval(this.timerId)
-      this.timerId = null
-    }
+  private onSpinStopped = (timerId: NodeJS.Timer): void => {
+    this.spin = false
+    clearInterval(timerId)
+    this.timerId = null
   }
 
   render() {
