@@ -9,6 +9,7 @@ import './components/kazuhira-vest'
 import './components/kazuhira-pants'
 import './components/start-button'
 import './components/stop-button'
+import './components/tweet-button'
 
 @customElement('ashitano-vest')
 export class AshitanoVest extends LitElement {
@@ -30,6 +31,9 @@ export class AshitanoVest extends LitElement {
   @state()
   _pantsIndex = 0
 
+  @state()
+  _numberOfPlay = 0
+
   static get styles() {
     return [
       normalizeCss,
@@ -45,6 +49,8 @@ export class AshitanoVest extends LitElement {
     this._isHeadSpinning = true
     this._isVestSpinning = true
     this._isPantsSpinning = true
+
+    this._numberOfPlay++
   }
 
   private onStop = (event: CustomEvent<Part>) => {
@@ -92,6 +98,9 @@ export class AshitanoVest extends LitElement {
     this._isPantsSpinning = false
   }
 
+  private pageId = (): string =>
+    `${this._headIndex + 1}${this._vestIndex + 1}${this._pantsIndex + 1}`
+
   render() {
     return html`
       <div @start=${this.onStart} @stop=${this.onStop} @index=${this.setIndex}>
@@ -100,6 +109,12 @@ export class AshitanoVest extends LitElement {
         <kazuhira-vest .spin=${this._isVestSpinning}></kazuhira-vest>
         <kazuhira-pants .spin=${this._isPantsSpinning}></kazuhira-pants>
         <start-button .disabled=${!this.isAllStopped()}></start-button>
+        ${this._numberOfPlay === 0
+          ? null
+          : html`<tweet-button
+              .disabled=${!this.isAllStopped()}
+              page-id=${this.pageId()}
+            ></tweet-button>`}
         <stop-button
           .disabled=${!this._isHeadSpinning}
           part="head"
