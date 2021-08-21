@@ -103,30 +103,44 @@ export class AshitanoVest extends LitElement {
 
   render() {
     return html`
-      <div @start=${this.onStart} @stop=${this.onStop} @index=${this.setIndex}>
-        <div>yo</div>
-        <kazuhira-head .spin=${this._isHeadSpinning}></kazuhira-head>
-        <kazuhira-vest .spin=${this._isVestSpinning}></kazuhira-vest>
-        <kazuhira-pants .spin=${this._isPantsSpinning}></kazuhira-pants>
-        <start-button .disabled=${!this.isAllStopped()}></start-button>
-        ${this._numberOfPlay === 0
-          ? null
-          : html`<tweet-button
-              .disabled=${!this.isAllStopped()}
-              page-id=${this.pageId()}
-            ></tweet-button>`}
-        <stop-button
-          .disabled=${!this._isHeadSpinning}
-          part="head"
-        ></stop-button>
-        <stop-button
-          .disabled=${!this._isVestSpinning}
-          part="vest"
-        ></stop-button>
-        <stop-button
-          .disabled=${!this._isPantsSpinning}
-          part="pants"
-        ></stop-button>
+      <div
+        style="background-color: gray; width: 320px; display: flex; justyfy-content: center; flex-direction: column;align-items: center;"
+        @start=${this.onStart}
+        @stop=${this.onStop}
+        @index=${this.setIndex}
+      >
+        <div style="display: flex; flex-direction: column;">
+          <kazuhira-head .spin=${this._isHeadSpinning}></kazuhira-head>
+          <kazuhira-vest .spin=${this._isVestSpinning}></kazuhira-vest>
+          <kazuhira-pants .spin=${this._isPantsSpinning}></kazuhira-pants>
+        </div>
+
+        <div
+          style="width: 240px; display: flex; justify-content: space-between;"
+        >
+          <stop-button
+            .disabled=${!this._isHeadSpinning}
+            part="head"
+          ></stop-button>
+          <stop-button
+            .disabled=${!this._isVestSpinning}
+            part="vest"
+          ></stop-button>
+          <stop-button
+            .disabled=${!this._isPantsSpinning}
+            part="pants"
+          ></stop-button>
+        </div>
+
+        <div>
+          <start-button .disabled=${!this.isAllStopped()}></start-button>
+          ${this._numberOfPlay === 0
+            ? null
+            : html`<tweet-button
+                .disabled=${!this.isAllStopped()}
+                page-id=${this.pageId()}
+              ></tweet-button>`}
+        </div>
       </div>
     `
   }

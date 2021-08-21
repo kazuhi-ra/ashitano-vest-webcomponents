@@ -58,7 +58,9 @@ export class KazuhiraPants extends LitElement {
   }
 
   render() {
-    return html` <img src=${this.pantsSrc(this.index)} /> `
+    return html`
+      <img src=${this.pantsSrc(this.index)} width="300" height="232" />
+    `
   }
 }
 
