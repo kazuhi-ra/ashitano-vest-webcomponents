@@ -1,6 +1,6 @@
 {
   "name": "@kazuhi-ra/avw",
-  "version": "0.9.0",
+  "version": "0.9.9",
   "main": "dist/esm/index.js",
   "type": "module",
   "description": "",
