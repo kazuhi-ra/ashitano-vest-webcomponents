@@ -2,6 +2,7 @@ import { css, html, LitElement } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 
 import { Part } from './components/stop-button'
+import { heads, pants, vests } from './utils/images'
 import { normalizeCss } from './utils/normalizeCss'
 
 import './components/kazuhira-head'
@@ -34,6 +35,15 @@ export class AshitanoVest extends LitElement {
 
   @state()
   _numberOfPlay = 0
+
+  connectedCallback() {
+    super.connectedCallback()
+
+    void [...heads, ...vests, ...pants].forEach((src) => {
+      const Img = new Image()
+      Img.src = src
+    })
+  }
 
   static get styles() {
     return [
