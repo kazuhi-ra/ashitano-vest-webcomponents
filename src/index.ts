@@ -139,7 +139,7 @@ export class AshitanoVest extends LitElement {
   render() {
     return html`
       <div class="header">
-        <div>あしたのベスト 出張版</div>
+        <div>あしたのベスト ポータブル</div>
       </div>
       <div
         class="container"
