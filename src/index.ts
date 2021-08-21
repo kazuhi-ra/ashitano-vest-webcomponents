@@ -21,6 +21,15 @@ export class AshitanoVest extends LitElement {
   @state()
   _isPantsSpinning = false
 
+  @state()
+  _headIndex = 0
+
+  @state()
+  _vestIndex = 0
+
+  @state()
+  _pantsIndex = 0
+
   static get styles() {
     return [
       normalizeCss,
@@ -58,6 +67,22 @@ export class AshitanoVest extends LitElement {
     }
   }
 
+  private setIndex = (event: CustomEvent<{ index: number; part: string }>) => {
+    const { index, part } = event.detail
+
+    switch (part) {
+      case 'head':
+        this._headIndex = index
+        break
+      case 'vest':
+        this._vestIndex = index
+        break
+      case 'pants':
+        this._pantsIndex = index
+        break
+    }
+  }
+
   private isAllStopped = () =>
     !(this._isHeadSpinning || this._isVestSpinning || this._isPantsSpinning)
 
@@ -69,7 +94,7 @@ export class AshitanoVest extends LitElement {
 
   render() {
     return html`
-      <div @start=${this.onStart} @stop=${this.onStop}>
+      <div @start=${this.onStart} @stop=${this.onStop} @index=${this.setIndex}>
         <div>yo</div>
         <kazuhira-head .spin=${this._isHeadSpinning}></kazuhira-head>
         <kazuhira-vest .spin=${this._isVestSpinning}></kazuhira-vest>

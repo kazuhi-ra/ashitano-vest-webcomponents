@@ -47,6 +47,14 @@ export class KazuhiraVest extends LitElement {
     this.spin = false
     clearInterval(timerId)
     this.timerId = null
+
+    this.dispatchEvent(
+      new CustomEvent('index', {
+        detail: { index: this.index, part: 'vest' },
+        bubbles: true,
+        composed: true,
+      }),
+    )
   }
 
   render() {
