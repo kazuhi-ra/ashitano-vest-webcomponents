@@ -117,7 +117,7 @@ export class AshitanoVest extends LitElement {
         </div>
 
         <div
-          style="width: 240px; display: flex; justify-content: space-between;"
+          style="width: 240px; display: flex; justify-content: space-between; margin-top: 6px;"
         >
           <stop-button
             .disabled=${!this._isHeadSpinning}
@@ -133,7 +133,7 @@ export class AshitanoVest extends LitElement {
           ></stop-button>
         </div>
 
-        <div>
+        <div style="margin-top: 12px;">
           <start-button .disabled=${!this.isAllStopped()}></start-button>
           ${this._numberOfPlay === 0
             ? null
