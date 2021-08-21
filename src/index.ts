@@ -2,6 +2,7 @@ import { css, html, LitElement } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 
 import { Part } from './components/stop-button'
+import { background } from './utils/images'
 import { normalizeCss } from './utils/normalizeCss'
 
 import './components/kazuhira-head'
@@ -9,6 +10,7 @@ import './components/kazuhira-vest'
 import './components/kazuhira-pants'
 import './components/start-button'
 import './components/stop-button'
+import './components/once-again-button'
 import './components/tweet-button'
 
 @customElement('ashitano-vest')
@@ -49,8 +51,6 @@ export class AshitanoVest extends LitElement {
     this._isHeadSpinning = true
     this._isVestSpinning = true
     this._isPantsSpinning = true
-
-    this._numberOfPlay++
   }
 
   private onStop = (event: CustomEvent<Part>) => {
@@ -70,6 +70,8 @@ export class AshitanoVest extends LitElement {
 
     if (this.isAllStopped()) {
       this.stopAll()
+
+      this._numberOfPlay++
     }
   }
 
@@ -103,9 +105,13 @@ export class AshitanoVest extends LitElement {
 
   render() {
     return html`
-      <div style="height: 46px; background-color: rgb(23, 34, 59);"></div>
       <div
-        style="background-color: gray; width: 320px; display: flex; justyfy-content: center; flex-direction: column;align-items: center;"
+        style="color: #fff; font-size: 19px; font-weight: 500; height: 54px; display: flex; align-items: center; justify-content: center; background-color: rgb(23, 34, 59); font-family: Helvetica Neue,Helvetica,Arial,游ゴシック体,Yu Gothic,YuGothic,Hiragino Kaku Gothic ProN,Meiryo,sans-serif;"
+      >
+        <div>あしたのベスト 出張版</div>
+      </div>
+      <div
+        style="background-image: url(${background}); width: 320px; display: flex; justyfy-content: center; flex-direction: column;align-items: center;"
         @start=${this.onStart}
         @stop=${this.onStop}
         @index=${this.setIndex}
@@ -117,7 +123,7 @@ export class AshitanoVest extends LitElement {
         </div>
 
         <div
-          style="width: 240px; display: flex; justify-content: space-between; margin-top: 6px;"
+          style="width: 230px; display: flex; justify-content: space-between; margin-top: 6px;"
         >
           <stop-button
             .disabled=${!this._isHeadSpinning}
@@ -133,14 +139,20 @@ export class AshitanoVest extends LitElement {
           ></stop-button>
         </div>
 
-        <div style="margin-top: 12px;">
-          <start-button .disabled=${!this.isAllStopped()}></start-button>
+        <div
+          style="width: 258px; display: flex; justify-content: space-between; margin-top: 12px; margin-bottom: 18px;"
+        >
           ${this._numberOfPlay === 0
-            ? null
-            : html`<tweet-button
+            ? html`<start-button
                 .disabled=${!this.isAllStopped()}
-                page-id=${this.pageId()}
-              ></tweet-button>`}
+              ></start-button>`
+            : html` <once-again-button
+                  .disabled=${!this.isAllStopped()}
+                ></once-again-button>
+                <tweet-button
+                  .disabled=${!this.isAllStopped()}
+                  page-id=${this.pageId()}
+                ></tweet-button>`}
         </div>
       </div>
     `

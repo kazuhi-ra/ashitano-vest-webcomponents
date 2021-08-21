@@ -3,8 +3,8 @@ import { customElement, property } from 'lit/decorators.js'
 
 import { normalizeCss } from '../utils/normalizeCss'
 
-@customElement('start-button')
-export class StartButton extends LitElement {
+@customElement('once-again-button')
+export class OnceAgainButton extends LitElement {
   @property({ type: Boolean })
   disabled: boolean = false
 
@@ -31,11 +31,11 @@ export class StartButton extends LitElement {
   render() {
     return html`
       <button
-        style="color: #dedede; cursor: pointer; width: 260px; height: 38px; background-color: #3498db; box-shadow: 0 4px 0 #2880b9; border-radius: 8px; line-height: 38px; text-align: center; font-size: 14px; font-weight: bold; user-select: none; margin: 0 auto; border: none; font-family: Arial;"
+        style="color: #fff; cursor: pointer; width: 120px; height: 36px; background-color: rgb(233, 181, 69); box-shadow: rgb(187 145 55) 0px 4px 0px; border-radius: 8px; line-height: 36px; text-align: center; font-size: 14px; font-weight: bold; user-select: none; margin: 0px auto; border: none;  font-family: Arial;"
         .disabled=${this.disabled}
         @click=${this.clickHandler}
       >
-        START
+        もう一度
       </button>
     `
   }
@@ -43,6 +43,6 @@ export class StartButton extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'start-button': StartButton
+    'once-again-button': OnceAgainButton
   }
 }
