@@ -4,14 +4,14 @@ import { customElement, state } from 'lit/decorators.js'
 import { Part } from './components/stop-button'
 import { normalizeCss } from './utils/normalizeCss'
 
+import './components/kazuhira-head'
+import './components/kazuhira-vest'
+import './components/kazuhira-pants'
 import './components/start-button'
 import './components/stop-button'
 
 @customElement('ashitano-vest')
 export class AshitanoVest extends LitElement {
-  @state()
-  i = 0
-
   @state()
   _isHeadSpinning = false
 
@@ -71,6 +71,9 @@ export class AshitanoVest extends LitElement {
     return html`
       <div @start=${this.onStart} @stop=${this.onStop}>
         <div>yo</div>
+        <kazuhira-head .spin=${this._isHeadSpinning}></kazuhira-head>
+        <kazuhira-vest .spin=${this._isVestSpinning}></kazuhira-vest>
+        <kazuhira-pants .spin=${this._isPantsSpinning}></kazuhira-pants>
         <start-button .disabled=${!this.isAllStopped()}></start-button>
         <stop-button
           .disabled=${!this._isHeadSpinning}
