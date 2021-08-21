@@ -20,14 +20,14 @@ export class StopButton extends LitElement {
         .stop-button {
           margin: 0 auto 4px auto;
           cursor: pointer;
-          width: 50px;
+          width: 52px;
           height: 45px;
           background-color: #ef454a;
           box-shadow: 0 4px 0 #bb4038;
           border-radius: 26px;
           line-height: 45px;
           text-align: center;
-          font-size: 13px;
+          font-size: 12px;
           color: #fff;
           -webkit-user-select: none;
           -moz-user-select: none;
@@ -35,6 +35,7 @@ export class StopButton extends LitElement {
           user-select: none;
           border: none;
           font-family: Arial;
+          white-space: nowrap;
         }
       `,
     ]
