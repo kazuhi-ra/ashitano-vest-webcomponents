@@ -59,7 +59,13 @@ export class KazuhiraVest extends LitElement {
 
   render() {
     return html`
-      <img src=${this.vestSrc(this.index)} width="300" height="150" />
+      <img
+        src=${this.vestSrc(this.index)}
+        alt="ベストの画像"
+        width="270"
+        height="135"
+        style="display: block;"
+      />
     `
   }
 }

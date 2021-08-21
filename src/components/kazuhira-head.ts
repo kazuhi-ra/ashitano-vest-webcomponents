@@ -59,7 +59,12 @@ export class KazuhiraHead extends LitElement {
 
   render() {
     return html`
-      <img src=${this.headSrc(this.index)} width="300" height="120" />
+      <img
+        src=${this.headSrc(this.index)}
+        width="270"
+        height="108"
+        style="display: block;"
+      />
     `
   }
 }
