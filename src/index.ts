@@ -103,13 +103,14 @@ export class AshitanoVest extends LitElement {
 
   render() {
     return html`
+      <div style="height: 46px; background-color: rgb(23, 34, 59);"></div>
       <div
         style="background-color: gray; width: 320px; display: flex; justyfy-content: center; flex-direction: column;align-items: center;"
         @start=${this.onStart}
         @stop=${this.onStop}
         @index=${this.setIndex}
       >
-        <div style="display: flex; flex-direction: column;">
+        <div style="display: flex; flex-direction: column; margin-top: 24px;">
           <kazuhira-head .spin=${this._isHeadSpinning}></kazuhira-head>
           <kazuhira-vest .spin=${this._isVestSpinning}></kazuhira-vest>
           <kazuhira-pants .spin=${this._isPantsSpinning}></kazuhira-pants>
