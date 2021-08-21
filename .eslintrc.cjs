@@ -1,15 +1,12 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es2020: true,
     jest: true,
     node: true,
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
     ecmaVersion: 2020,
     sourceType: 'module',
   },
@@ -33,52 +30,6 @@ module.exports = {
           'sibling',
           'parent',
           'object',
-        ],
-        pathGroups: [
-          {
-            pattern: 'src/**',
-            group: 'index',
-            position: 'before',
-          },
-          {
-            pattern: 'typings/**',
-            group: 'index',
-            position: 'before',
-          },
-          {
-            pattern: '../public/**',
-            group: 'parent',
-            position: 'after',
-          },
-          {
-            pattern: '../../public/**',
-            group: 'parent',
-            position: 'after',
-          },
-          {
-            pattern: '../../../public/**',
-            group: 'parent',
-            position: 'after',
-          },
-          {
-            pattern: '../../../../public/**',
-            group: 'parent',
-            position: 'after',
-          },
-          {
-            pattern: '../../../../../public/**',
-            group: 'parent',
-            position: 'after',
-          },
-        ],
-        pathGroupsExcludedImportTypes: [
-          'src/**',
-          'typings/**',
-          '../public/**',
-          '../../public/**',
-          '../../../public/**',
-          '../../../../public/**',
-          '../../../../../public/**',
         ],
         alphabetize: { order: 'asc', caseInsensitive: true },
         'newlines-between': 'always',
