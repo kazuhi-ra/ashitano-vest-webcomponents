@@ -2,6 +2,8 @@
 
 「あしたのベスト」ポータブル。Web Components によるすぐれたポータビリティをお楽しみください。
 
+[sample](https://kazuhi-ra.hatenablog.com/entry/2021/08/22/050850)
+
 ### How to use
 
 ```html
