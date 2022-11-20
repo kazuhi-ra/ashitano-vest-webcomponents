@@ -23,6 +23,6 @@ or
 import '@kazuhi-ra/avw'
 
 const AshitanoVest = () => {
-  return <ashitano-vest></ashitano-vest>
+  return <ashitano-vest />
 }
 ```
